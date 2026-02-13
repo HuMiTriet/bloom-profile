@@ -10,7 +10,7 @@
 #       write code like this!
 #
 
-HARDWARE_TYPE = "c220g5"
+HARDWARE_TYPE = "c220g1"
 
 # Import the Portal object.
 import geni.portal as portal 
