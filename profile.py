@@ -2,7 +2,8 @@
 
 - 1 client 
 - 1 resolver
-- 1 nameserver"""
+- 1 nameserver
+"""
 
 #
 # NOTE: This code was machine converted. An actual human would not
@@ -29,7 +30,7 @@ sudo apt install -y dnsperf
 """
 
 node_client = request.RawPC('client')
-node_client.hardware_type = 'c220g2'
+node_client.hardware_type = 'c220g1'
 node_client.disk_image = 'urn:publicid:IDN+emulab.net+image+emulab-ops//UBUNTU24-64-STD'
 iface0 = node_client.addInterface('client-interface', pg.IPv4Address('192.168.10.1','255.255.255.0'))
 
@@ -66,7 +67,7 @@ cd
 
 
 node_resolver = request.RawPC('resolver')
-node_resolver.hardware_type = 'c220g2'
+node_resolver.hardware_type = 'c220g1'
 node_resolver.disk_image = 'urn:publicid:IDN+emulab.net+image+emulab-ops//UBUNTU24-64-STD'
 iface1 = node_resolver.addInterface('res-interface', pg.IPv4Address('192.168.10.2','255.255.255.0'))
 iface2 = node_resolver.addInterface('resolver-interface', pg.IPv4Address('192.168.20.1','255.255.255.0'))
@@ -81,7 +82,7 @@ sudo apt install -y nsd
 
 
 node_NS = request.RawPC('NS')
-node_NS.hardware_type = 'c220g2'
+node_NS.hardware_type = 'c220g1'
 node_NS.disk_image = 'urn:publicid:IDN+emulab.net+image+emulab-ops//UBUNTU24-64-STD'
 iface3 = node_NS.addInterface('ns-interface', pg.IPv4Address('192.168.20.2','255.255.255.0'))
 
@@ -104,4 +105,3 @@ link_resolver_ns_link.latency = 25
 
 # Print the generated rspec
 pc.printRequestRSpec(request)
-
