@@ -33,7 +33,7 @@ export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
 
 make 
 
-make install
+sudo make install
 
 cd
 

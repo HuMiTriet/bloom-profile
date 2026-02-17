@@ -33,7 +33,7 @@ node_client.component_manager_id = WISC_URN  # <--- Force Location: Wisconsin
 node_client.disk_image = 'urn:publicid:IDN+emulab.net+image+emulab-ops//UBUNTU24-64-STD'
 iface0 = node_client.addInterface('client-interface', pg.IPv4Address('192.168.10.1','255.255.255.0'))
 
-node_client.addService(pg.Execute(shell="bash", command="./setup_script/client.sh"))
+# node_client.addService(pg.Execute(shell="bash", command="./setup_script/client.sh"))
 
 
 # Node resovler
@@ -44,7 +44,7 @@ node_resolver.disk_image = 'urn:publicid:IDN+emulab.net+image+emulab-ops//UBUNTU
 iface1 = node_resolver.addInterface('res-interface', pg.IPv4Address('192.168.10.2','255.255.255.0'))
 iface2 = node_resolver.addInterface('resolver-interface', pg.IPv4Address('192.168.20.1','255.255.255.0'))
 
-node_resolver.addService(pg.Execute(shell="bash", command="./setup_script/resolver.sh"))
+# node_resolver.addService(pg.Execute(shell="bash", command="./setup_script/resolver.sh"))
 
 # Node NS
 node_NS = request.RawPC('NS')
@@ -53,7 +53,7 @@ node_NS.component_manager_id = WISC_URN  # <--- Force Location: Wisconsin
 node_NS.disk_image = 'urn:publicid:IDN+emulab.net+image+emulab-ops//UBUNTU24-64-STD'
 iface3 = node_NS.addInterface('ns-interface', pg.IPv4Address('192.168.20.2','255.255.255.0'))
 
-node_NS.addService(pg.Execute(shell="bash", command="./setup_script/ns.sh"))
+# node_NS.addService(pg.Execute(shell="bash", command="./setup_script/ns.sh"))
 
 # Link client-resolver-link
 link_client_resolver_link = request.LAN('client-resolver-link')
