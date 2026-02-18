@@ -30,7 +30,7 @@ request = pc.makeRequestRSpec()
 node_client = request.RawPC('client')
 node_client.hardware_type = HARDWARE_TYPE
 node_client.component_manager_id = WISC_URN  # <--- Force Location: Wisconsin
-node_client.disk_image = 'urn:publicid:IDN+emulab.net+image+emulab-ops//UBUNTU24-64-STD'
+node_client.disk_image = 'urn:publicid:IDN+wisc.cloudlab.us+image+mt1-PG0:3DNS_git.client'
 iface0 = node_client.addInterface('client-interface', pg.IPv4Address('192.168.10.1','255.255.255.0'))
 
 # node_client.addService(pg.Execute(shell="bash", command="./setup_script/client.sh"))
@@ -40,7 +40,7 @@ iface0 = node_client.addInterface('client-interface', pg.IPv4Address('192.168.10
 node_resolver = request.RawPC('resolver')
 node_resolver.hardware_type = HARDWARE_TYPE
 node_resolver.component_manager_id = WISC_URN  # <--- Force Location: Wisconsin
-node_resolver.disk_image = 'urn:publicid:IDN+emulab.net+image+emulab-ops//UBUNTU24-64-STD'
+node_resolver.disk_image = 'urn:publicid:IDN+wisc.cloudlab.us+image+mt1-PG0:3DNS_git.resolver'
 iface1 = node_resolver.addInterface('res-interface', pg.IPv4Address('192.168.10.2','255.255.255.0'))
 iface2 = node_resolver.addInterface('resolver-interface', pg.IPv4Address('192.168.20.1','255.255.255.0'))
 
