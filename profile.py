@@ -51,7 +51,7 @@ node_NS = request.RawPC('NS')
 node_NS.hardware_type = HARDWARE_TYPE
 node_NS.component_manager_id = WISC_URN  # <--- Force Location: Wisconsin
 
-node_NS.disk_image = 'urn:publicid:IDN+wisc.cloudlab.us+image+mt1-PG0:3DNS_git.NS'
+node_NS.disk_image = 'urn:publicid:IDN+emulab.net+image+emulab-ops//UBUNTU24-64-STD'
 iface3 = node_NS.addInterface('ns-interface', pg.IPv4Address('192.168.20.2','255.255.255.0'))
 
 # node_NS.addService(pg.Execute(shell="bash", command="./setup_script/ns.sh"))
