@@ -45,7 +45,7 @@ iface0 = node_client.addInterface(
 node_resolver = request.RawPC("resolver")
 node_resolver.hardware_type = HARDWARE_TYPE
 node_resolver.disk_image = (
-    "urn:publicid:IDN+wisc.cloudlab.us+image+mt1-PG0:3DNS_git.resolver:3"
+    "urn:publicid:IDN+wisc.cloudlab.us+image+mt1-PG0:3DNS_git.resolver:4"
 )
 iface1 = node_resolver.addInterface(
     "res-interface", pg.IPv4Address("192.168.10.2", "255.255.255.0")
@@ -59,7 +59,7 @@ iface2 = node_resolver.addInterface(
 # Node NS
 node_NS = request.RawPC("NS")
 node_NS.hardware_type = HARDWARE_TYPE
-node_NS.disk_image = "urn:publicid:IDN+wisc.cloudlab.us+image+mt1-PG0:NS_net"
+node_NS.disk_image = "urn:publicid:IDN+wisc.cloudlab.us+image+mt1-PG0:3DNS_git.NS:10"
 iface3 = node_NS.addInterface(
     "ns-interface", pg.IPv4Address("192.168.20.2", "255.255.255.0")
 )
