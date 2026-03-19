@@ -10,7 +10,7 @@
 #       write code like this!
 # I would!
 
-HARDWARE_TYPE = "c220g5"
+HARDWARE_TYPE = "c220g2"
 WISC_URN = "urn:publicid:IDN+wisc.cloudlab.us+authority+cm"
 
 # Import the Portal object.
