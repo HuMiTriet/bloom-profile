@@ -69,8 +69,8 @@ iface3 = node_NS.addInterface(
 # Link client-resolver-link
 link_client_resolver_link = request.LAN("client-resolver-link")
 link_client_resolver_link.Site("undefined")
-link_client_resolver_link.addInterface(iface1)
 link_client_resolver_link.addInterface(iface0)
+link_client_resolver_link.addInterface(iface1)
 
 # Link resolver-ns-link
 link_resolver_ns_link = request.LAN("resolver-ns-link")
@@ -78,7 +78,7 @@ link_resolver_ns_link.Site("undefined")
 link_resolver_ns_link.addInterface(iface2)
 link_resolver_ns_link.addInterface(iface3)
 
-link_client_resolver_link = 5
+link_client_resolver_link.latency = 5
 link_resolver_ns_link.latency = 25
 
 
