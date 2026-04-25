@@ -1,6 +1,6 @@
 """3 bare metal server to test out bloom filter with DNSSEC
 
-- 1 client
+- 2 client (1 benign and 1 malicious)
 - 1 resolver
 - 1 nameserver
 """
@@ -28,7 +28,7 @@ pc = portal.Context()
 # Create a Request object to start building the RSpec.
 request = pc.makeRequestRSpec()
 
-# Node client
+# benign Node client
 node_client = request.RawPC("client")
 node_client.hardware_type = HARDWARE_TYPE
 node_client.disk_image = (
@@ -38,10 +38,18 @@ iface0 = node_client.addInterface(
     "client-interface", pg.IPv4Address("192.168.10.1", "255.255.255.0")
 )
 
-# node_client.addService(pg.Execute(shell="bash", command="./setup_script/client.sh"))
+# malicious Node client
+evil_node_client = request.RawPC("evil-client")
+evil_node_client.hardware_type = HARDWARE_TYPE
+evil_node_client.disk_image = (
+    "urn:publicid:IDN+wisc.cloudlab.us+image+mt1-PG0:3DNS_git.client:1"
+)
+evil_iface0 = evil_node_client.addInterface(
+    "client-interface", pg.IPv4Address("192.168.10.3", "255.255.255.0")
+)
 
 
-# Node resovler
+# resovler
 node_resolver = request.RawPC("resolver")
 node_resolver.hardware_type = HARDWARE_TYPE
 node_resolver.disk_image = (
@@ -59,7 +67,7 @@ iface2 = node_resolver.addInterface(
 # Node NS
 node_NS = request.RawPC("NS")
 node_NS.hardware_type = HARDWARE_TYPE
-node_NS.disk_image = "urn:publicid:IDN+wisc.cloudlab.us+image+mt1-PG0:3DNS_git.NS:15"
+node_NS.disk_image = "urn:publicid:IDN+wisc.cloudlab.us+image+mt1-PG0:3DNS.NS"
 iface3 = node_NS.addInterface(
     "ns-interface", pg.IPv4Address("192.168.20.2", "255.255.255.0")
 )
@@ -70,6 +78,7 @@ iface3 = node_NS.addInterface(
 link_client_resolver_link = request.LAN("client-resolver-link")
 link_client_resolver_link.Site("undefined")
 link_client_resolver_link.addInterface(iface0)
+link_client_resolver_link.addInterface(evil_iface0)
 link_client_resolver_link.addInterface(iface1)
 
 # Link resolver-ns-link
