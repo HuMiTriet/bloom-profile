@@ -32,7 +32,7 @@ request = pc.makeRequestRSpec()
 node_client = request.RawPC("client")
 node_client.hardware_type = HARDWARE_TYPE
 node_client.disk_image = (
-    "urn:publicid:IDN+wisc.cloudlab.us+image+mt1-PG0:3DNS_git.client:2"
+    "urn:publicid:IDN+wisc.cloudlab.us+image+mt1-PG0:3DNS_git.client:1"
 )
 iface0 = node_client.addInterface(
     "client-interface", pg.IPv4Address("192.168.10.1", "255.255.255.0")
@@ -42,7 +42,7 @@ iface0 = node_client.addInterface(
 evil_node_client = request.RawPC("evil-client")
 evil_node_client.hardware_type = HARDWARE_TYPE
 evil_node_client.disk_image = (
-    "urn:publicid:IDN+wisc.cloudlab.us+image+mt1-PG0:3DNS_git.client:2"
+    "urn:publicid:IDN+wisc.cloudlab.us+image+mt1-PG0:3DNS_git.client:1"
 )
 evil_iface0 = evil_node_client.addInterface(
     "client-interface", pg.IPv4Address("192.168.10.3", "255.255.255.0")
