@@ -59,7 +59,7 @@ iface2 = node_resolver.addInterface(
 # Node NS
 node_NS = request.RawPC("NS")
 node_NS.hardware_type = HARDWARE_TYPE
-node_NS.disk_image = "urn:publicid:IDN+wisc.cloudlab.us+image+mt1-PG0:3DNS_git.NS:15"
+node_NS.disk_image = "urn:publicid:IDN+wisc.cloudlab.us+image+mt1-PG0:3DNS.NS"
 iface3 = node_NS.addInterface(
     "ns-interface", pg.IPv4Address("192.168.20.2", "255.255.255.0")
 )
