@@ -87,7 +87,7 @@ link_resolver_ns_link.Site("undefined")
 link_resolver_ns_link.addInterface(iface2)
 link_resolver_ns_link.addInterface(iface3)
 
-link_client_resolver_link.latency = 5
+link_client_resolver_link.latency = 1
 link_resolver_ns_link.latency = 25
 
 
